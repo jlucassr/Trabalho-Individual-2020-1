@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  front:
+      container_name: client
+
+      build: 
+        context: .
+        dockerfile: ./client/Dockerfile
+      
+      ports: 
+        - 8080:8080
+      
+      volumes:
+        - ./client:/code
+
+      command: yarn dev
