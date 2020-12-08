@@ -15,3 +15,30 @@ services:
         - ./client:/code
 
       command: yarn dev
+
+  back:
+    container_name: api
+
+    build: 
+      context: .
+      dockerfile: ./api/Dockerfile
+    
+    ports: 
+      - 3000:3000
+
+    volumes: 
+      - ./api:/code
+
+    env_file: ./.env
+    
+    depends_on:
+      - db
+    
+    command: rails server -p 3000 -b '0.0.0.0'
+
+  db:
+    container_name: database
+
+    image: postgres:13
+
+    env_file: ./.env
