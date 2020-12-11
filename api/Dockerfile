@@ -5,12 +5,16 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir /code
 WORKDIR /code
 
+COPY api/Gemfile /code/
+COPY api/Gemfile.lock /code/
+
 RUN gem update --system
-RUN gem install bundler
+RUN gem install bundler -v 2.1.4 &&\
+    bundle install
 
-RUN bundle install
-
-RUN rake db:create
-RUN rake db:migrate
 COPY . /code
 
+COPY api/entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+EXPOSE 3000
