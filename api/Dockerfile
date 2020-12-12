@@ -5,8 +5,8 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir /code
 WORKDIR /code
 
-COPY api/Gemfile /code/
-COPY api/Gemfile.lock /code/
+COPY api/Gemfile .
+COPY api/Gemfile.lock .
 
 RUN gem update --system
 RUN gem install bundler -v 2.1.4 &&\
