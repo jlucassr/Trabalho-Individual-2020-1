@@ -19,8 +19,8 @@ jobs:
       with:
         ruby-version: 2.5.7
     - name: Install dependencies
-      run: |
-        cd api
-        bundle install
+      working_directory: ./api
+      run: bundle install
     - name: Run tests
+      working_directory: ./api
       run: bundle exec rake
