@@ -14,9 +14,40 @@ jobs:
 
       - name: build 
         run: docker-compose up --build -d
+  
+  # tests:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+    
+  #     - name: run client tests
+  #       run: docker-compose run client yarn run test:unit
 
-      - name: run client tests
-        run: docker-compose run client yarn run test:unit
+  #     - name: run api tests
+  #       run: docker-compose run api bundle exec rails test
 
-      - name: run api tests
-        run: docker-compose run api bundle exec rails test
+  tests:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: .
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build Client Container
+      run: |
+        docker-compose up -d --build client
+        
+    - name: Run Client Tests
+      run: |
+        docker-compose run client yarn run test:unit
+      
+    - name: Build API
+      run:  |
+        docker-compose up -d --build db api
+        
+    - name: Run API Tests
+      run: |
+        docker-compose run api bundle exec rails test
