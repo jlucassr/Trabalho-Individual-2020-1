@@ -4,7 +4,7 @@ WORKDIR /client
 
 ENV PATH /client/node_modules/.bin:$PATH
 
-COPY . .
+COPY ./client .
 
 RUN yarn global add @vue/cli@4.4.6
 RUN yarn install
