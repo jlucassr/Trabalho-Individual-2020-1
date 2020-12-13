@@ -22,8 +22,6 @@ services:
       volumes:
         - ./client:/client
         - node_modules:/client/node_modules
-      
-      env_file: .env
 
   api:
     container_name: api

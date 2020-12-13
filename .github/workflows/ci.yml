@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  client:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,14 +17,6 @@ jobs:
 
       - name: run client tests
         run: docker-compose run client yarn run test:unit
-
-  api:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: build api
-        run: docker-compose up --build -d
 
       - name: run api tests
         run: docker-compose run api bundle exec rails test
