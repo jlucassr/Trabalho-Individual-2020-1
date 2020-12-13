@@ -28,8 +28,6 @@ services:
   back:
     container_name: api
 
-    restart: always
-
     build: 
       context: .
       dockerfile: ./api/Dockerfile
