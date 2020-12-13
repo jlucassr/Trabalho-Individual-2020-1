@@ -36,14 +36,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build Client Container
-      run: |
-        docker-compose up -d --build client
-        
-    - name: Run Client Tests
-      run: |
-        docker-compose run client yarn run test:unit
-      
     - name: Build API
       run:  |
         docker-compose up -d --build db api
@@ -51,3 +43,12 @@ jobs:
     - name: Run API Tests
       run: |
         docker-compose run api bundle exec rails test
+
+    - name: Build Client Container
+      run: |
+        docker-compose up -d --build client
+        
+    - name: Run Client Tests
+      run: |
+        docker-compose run client yarn run test:unit
+    
