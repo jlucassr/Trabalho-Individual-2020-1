@@ -11,10 +11,6 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    defaults:
-      run:
-        working-directory: ./Trabalho-Individual-2020-1
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Build
