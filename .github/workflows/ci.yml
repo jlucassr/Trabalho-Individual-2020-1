@@ -42,7 +42,7 @@ jobs:
         
     - name: Run API Tests
       run: |
-        docker-compose run api bundle exec rails test
+        docker-compose run -e "RAILS_ENV=test" api rake test
 
     - name: Build Client Container
       run: |
