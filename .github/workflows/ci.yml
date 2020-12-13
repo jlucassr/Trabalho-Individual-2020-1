@@ -6,40 +6,15 @@ on:
   pull_request:
     branches: [ master ]
 
-# jobs:
-#   client:
-
-#     runs-on: ubuntu-latest
-    
-    
-#     steps:
-#     - uses: actions/checkout@v2
-
-#     - name: Set up Build
-#       run: docker-compose up --build -d
-
-#     - name: RUN Client tests
-#       run: docker-compose run client yarn test:unit
-        
-#     - name: Run API tests
-#       run: docker-compose run api rake test
-
 jobs:
   client:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "14"
 
       - name: build 
         run: docker-compose up --build -d
 
-      - name: install dependencies
-        run: |
-          cd client/
-          yarn
       - name: run client tests
         run: docker-compose run client yarn run test:unit
 
