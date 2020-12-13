@@ -8,8 +8,8 @@ WORKDIR /code
 COPY . .
 
 RUN gem update --system
-RUN gem install bundler -v 2.1.4 &&\
-    bundle install
+RUN gem install bundler -v 2.1.4
+RUN bundle install
 
 COPY . /code
 
