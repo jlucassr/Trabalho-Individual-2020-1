@@ -7,6 +7,6 @@ ENV PATH /client/node_modules/.bin:$PATH
 COPY . .
 
 RUN npm install
-RUN npm install @vue/cli@3.7.0 -g
+RUN npm install global @vue/cli@3.7.0
 
-CMD ["npx", "run", "serve"]
+CMD ["npm", "run", "serve"]
