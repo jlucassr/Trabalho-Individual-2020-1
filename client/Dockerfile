@@ -10,4 +10,4 @@ RUN yarn add @vue/cli@3.7.0 -g
 
 RUN yarn install
 
-COPY . /code
+CMD ["yarn", "serve"]
