@@ -6,7 +6,7 @@ ENV PATH /client/node_modules/.bin:$PATH
 
 COPY . .
 
-RUN npm install
-RUN npm install global @vue/cli@3.7.0
+RUN yarn global add @vue/cli@4.4.6
+RUN yarn install
 
-CMD ["npm", "run", "serve"]
+CMD ["yarn", "serve"]
