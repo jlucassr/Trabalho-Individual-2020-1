@@ -34,4 +34,4 @@ jobs:
     - name: Install dependencies
       run: bundle install
     - name: Run tests
-      run: bundle exec rake
+      run: docker-compose run back bundle exec rails test
