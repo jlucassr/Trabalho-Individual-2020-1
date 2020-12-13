@@ -27,8 +27,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
         
-    - name: RUN Client tests
-      run: docker-compose run client yarn test:unit
+    - name: Run Client tests
+      run: docker-compose run -e "NODE_ENV=test" client
         
     - name: Run API tests
-      run: docker-compose run api rake test
+      run: docker-compose run -e "RAILS_ENV=test" api
