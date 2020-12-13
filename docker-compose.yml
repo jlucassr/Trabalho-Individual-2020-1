@@ -9,7 +9,7 @@ networks:
   network_app:
 
 services:
-  front:
+  client:
       container_name: client
 
       build: 
@@ -23,7 +23,7 @@ services:
         - ./client:/client
         - front_node_modules:/client/front_node_modules
 
-  back:
+  api:
     container_name: api
 
     build: 
@@ -50,7 +50,7 @@ services:
     command: rails server -p 3000 -b '0.0.0.0'
 
   db:
-    container_name: database
+    container_name: db
 
     image: postgres:13
 
