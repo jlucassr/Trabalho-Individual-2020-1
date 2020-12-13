@@ -16,7 +16,7 @@ WORKDIR /client
 COPY ./client/package.json .
 COPY ./client/yarn.lock .
 
-RUN yarn global add @vue/cli@4.4.6
+RUN yarn add global @vue/cli
 RUN yarn install
 
 COPY ./client/ /client
