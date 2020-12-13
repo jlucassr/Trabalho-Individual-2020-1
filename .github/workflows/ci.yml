@@ -11,12 +11,13 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./Trabalho-Individual-2020-1/api
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
-      defaults: 
-        run:
-          work_directory: api
 
       uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
       with:
