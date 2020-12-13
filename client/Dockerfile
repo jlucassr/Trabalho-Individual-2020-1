@@ -9,4 +9,4 @@ COPY . .
 RUN npm install
 RUN npm install @vue/cli@3.7.0 -g
 
-CMD ["vue-cli-service", "serve"]
+CMD ["npm", "run", "serve"]
