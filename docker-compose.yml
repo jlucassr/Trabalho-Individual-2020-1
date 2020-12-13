@@ -23,6 +23,8 @@ services:
         - ./client:/client
         - front_node_modules:/client/front_node_modules
 
+      command: yarn dev
+
   back:
     container_name: api
 
