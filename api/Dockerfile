@@ -12,5 +12,5 @@ RUN gem install bundler -v 2.1.4
 
 COPY api/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+RUN ./entrypoint.sh
 EXPOSE 3000
