@@ -1,12 +1,25 @@
-FROM node:14
+# FROM node:14
 
+# WORKDIR /client
+
+# ENV PATH /client/node_modules/.bin:$PATH
+
+# COPY . .
+
+# RUN npm install
+# RUN npm install @vue/cli@3.7.0 -g
+
+# CMD ["npm", "run", "serve"]
+
+FROM node:lts-alpine
+
+RUN npm install -g http-server
 WORKDIR /client
 
 ENV PATH /client/node_modules/.bin:$PATH
-
 COPY . .
-
 RUN npm install
 RUN npm install @vue/cli@3.7.0 -g
 
-CMD ["npm", "run", "serve"]
+CMD ["vue-cli-service", "serve"]
+# CMD ["npm", "run", "serve"]
