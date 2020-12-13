@@ -13,9 +13,6 @@
 
 FROM node:14
 
-RUN mkdir -p /opt/app/client
-WORKDIR /opt/app/client
-
 COPY ./client/package.json .
 COPY ./client/yarn.lock .
 
