@@ -2,7 +2,12 @@ FROM node:14
 
 WORKDIR /code
 
-RUN yarn global add @vue/cli@4.4.6
+ENV PATH /client/node_modules/.bin:$PATH
+
+COPY . .
+
+RUN yarn add @vue/cli@3.7.0 -g
+
 RUN yarn install
 
 COPY . /code
