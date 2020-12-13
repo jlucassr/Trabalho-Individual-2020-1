@@ -20,8 +20,8 @@ services:
         - 8080:8080
       
       volumes:
-        - ./client:/code
-        - front_node_modules:/code/front_node_modules
+        - ./client:/client
+        - front_node_modules:/client/front_node_modules
 
   back:
     container_name: api

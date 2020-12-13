@@ -1,13 +1,12 @@
 FROM node:14
 
-WORKDIR /code
+WORKDIR /client
 
 ENV PATH /client/node_modules/.bin:$PATH
 
 COPY . .
 
-RUN yarn add @vue/cli@3.7.0 -g
+RUN npm install
+RUN npm install @vue/cli@3.7.0 -g
 
-RUN yarn install
-
-CMD ["yarn", "serve"]
+CMD ["vue-cli-service", "serve"]
