@@ -6,11 +6,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Build and push
-      with:
-        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-        heroku_app_name: "api-joaolucas"
-        heroku_email: "joao.lucas.ssr@gmail.com"
-      env:
-        HD_APP_BASE: "api"
+      - uses: actions/checkout@v1
+      - name: Build and push
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "api-joaolucas"
+          heroku_email: "joao.lucas.ssr@gmail.com"
+        env:
+          HD_APP_BASE: "api"
