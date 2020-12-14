@@ -1,7 +1,7 @@
 version: '3.7'
 
 volumes:
-  front_node_modules:
+  node_modules:
   api_gems:
   volume_db:
 
@@ -9,7 +9,7 @@ networks:
   network_app:
 
 services:
-  front:
+  client:
       container_name: client
 
       build: 
@@ -20,15 +20,11 @@ services:
         - 8080:8080
       
       volumes:
-        - ./client:/code
-        - front_node_modules:/code/front_node_modules
+        - ./client:/client
+        - node_modules:/client/node_modules
 
-      command: yarn dev
-
-  back:
+  api:
     container_name: api
-
-    restart: always
 
     build: 
       context: .
@@ -43,6 +39,8 @@ services:
 
     env_file: ./.env
     
+    links:
+      - db
     depends_on:
       - db
 
@@ -52,7 +50,7 @@ services:
     command: rails server -p 3000 -b '0.0.0.0'
 
   db:
-    container_name: database
+    container_name: db
 
     image: postgres:13
 
