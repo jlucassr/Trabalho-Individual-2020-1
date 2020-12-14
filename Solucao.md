@@ -21,6 +21,12 @@ Foi criada também a **network_app**, uma network para facilitar as comunicaçõ
 
 Para a Integração contínua foi usado o Github Actions. Foi criado o workflow **CI** onde todas as configurações de build, testes e da ferramenta sonarcloud para a manutenibilidade e qualidade de cada execução de push ou pull request feitos para as branches estáveis do trabalho.
 
+No arquivo ci.yml, foram criados os três *jobs*: 
+
+- build: Para subir o ambiente dockerizado;
+- tests: Para executar os testes do Frontend e do Backend;
+- sonarcloud: Para verificação da qualidade e manutenibilidade do código do projeto.
+
 # Como executar
 
 Para subir e buildar o projeto, basta rodar o comando abaixo:
